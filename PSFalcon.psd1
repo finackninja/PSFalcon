@@ -12,7 +12,7 @@
 # RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.4.1'
+ModuleVersion = '1.4.2'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -519,9 +519,9 @@ PrivateData = @{
         IconUri = 'https://avatars3.githubusercontent.com/u/54042976?s=460&u=de53aed783c47ef9bd9ffe9489fb77a67648eb89&v=4'
 
         # ReleaseNotes of this module
-        ReleaseNotes = "Version 1.4.1 changes:
+        ReleaseNotes = "Version 1.4.2 changes:
 
-        * Removed improperly labeled 'queue_offline_all' parameter from RTR batch initialization."
+        * Bugfix for URI path variables in Get-CsIoc (Issue 25)"
 
     } # End of PSData hashtable
 
