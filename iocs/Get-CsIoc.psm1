@@ -46,54 +46,41 @@ function Get-CsIoc {
     [OutputType([psobject])]
     param(
         [ValidateSet('domain', 'ipv4', 'ipv6', 'md5', 'sha256')]
-        [string]
-        $Type,
+        [string] $Type,
 
         [ValidateLength(1,200)]
-        [string]
-        $Value,
+        [string] $Value,
 
-        [string]
-        $After,
+        [string] $After,
 
-        [string]
-        $Before,
+        [string] $Before,
 
         [ValidateSet('detect', 'none')]
-        [string]
-        $Policy = 'detect',
+        [string] $Policy,
 
         [ValidateLength(1,200)]
-        [string]
-        $Source,
+        [string] $Source,
 
         [ValidateSet('red')]
-        [string]
-        $Share = 'red',
+        [string] $Share,
 
         [string]
         $CreatedBy,
 
-        [string]
-        $DeletedBy,
+        [string] $DeletedBy,
 
-        [boolean]
-        $Deleted = $false,
+        [boolean] $Deleted,
 
         [ValidateRange(1,500)]
-        [int]
-        $Limit = 500,
+        [int] $Limit = 500,
 
-        [int]
-        $Offset = 0,
+        [int] $Offset,
 
-        [switch]
-        $All
+        [switch] $All
     )
     process{
         $Param = @{
-            Uri = '/indicators/queries/iocs/v1?limit=' + [string] $Limit + '&offset=' + [string] $Offset +
-            '&policies=' + $Policy + '&share_levels=' + $Share + '&include_deleted=' + $Deleted
+            Uri = '/indicators/queries/iocs/v1?'
             Method = 'get'
             Header = @{
                 accept = 'application/json'
@@ -101,13 +88,18 @@ function Get-CsIoc {
             }
         }
         switch ($PSBoundParameters.Keys) {
-            'Type' { $Param.Uri += '&types=' + $Type }
-            'Value' { $Param.Uri += '&values=' + $Value }
-            'After' { $Param.Uri += '&from.expiration_timestamp=' + $Type }
-            'Before' { $Param.Uri += '&to.expiration_timestamp=' + $Type }
-            'Source' { $Param.Uri += '&sources=' + $Type }
-            'CreatedBy' { $Param.Uri += '&created_by=' + $Type }
-            'DeletedBy' { $Param.Uri += '&deleted_by=' + $Type }
+            'Limit' { $Param.Uri += "&limit=$Limit" }
+            'Offset' { $Param.Uri += "&offset=$Offset" }
+            'Policy' { $Param.Uri += "&policies=$Policy"}
+            'Share' { $Param.Uri += "&share_levels=$Share" }
+            'Deleted' { $Param.Uri += "&include_deleted=$Deleted" }
+            'Type' { $Param.Uri += "&types=$Type" }
+            'Value' { $Param.Uri += "&values=$Value" }
+            'After' { $Param.Uri += "&from.expiration_timestamp=$After" }
+            'Before' { $Param.Uri += "&to.expiration_timestamp=$Before" }
+            'Source' { $Param.Uri += "&sources=$Source" }
+            'CreatedBy' { $Param.Uri += "&created_by=$CreatedBy" }
+            'DeletedBy' { $Param.Uri += "&deleted_by=$DeletedBy" }
             'Debug' { $Param['Debug'] = $true }
             'Verbose' { $Param['Verbose'] = $true }
         }
