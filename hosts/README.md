@@ -13,6 +13,8 @@ Search for hosts in your environment
 
 `-All`: Repeat request until all results are returned
 
+`-Hidden`: Switch to toggle a search of 'Hidden' devices
+
 ### Example
 ```powershell
 PS> Get-CsHostId
