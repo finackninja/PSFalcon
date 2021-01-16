@@ -1,4 +1,6 @@
-**WARNING**: The PSFalcon modules are an independent project and not supported by CrowdStrike.
+[PSFalcon v2 coming soon...](https://github.com/crowdstrike/psfalcon)
+
+**WARNING**: PSFalcon v1.4.2 is an independent project and not supported by CrowdStrike.
 
 # Installation
 
