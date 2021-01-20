@@ -1,5 +1,5 @@
 ***
-### **[PSFalcon v2 is now available](https://github.com/crowdstrike/psfalcon). It offers several performance and usability improvements over v1.4.2, but does have several script-breaking changes. Please test with existing scripts before deleting v1.4.2, as v1.4.2 will eventually be taken offline.**
+### **[PSFalcon v2 is now available](https://github.com/crowdstrike/psfalcon). It offers several performance and usability improvements over v1.4.2, but does contain script-breaking changes. Please test with existing scripts before deleting v1.4.2, as v1.4.2 will eventually be taken offline.**
 ***
 
 **WARNING**: PSFalcon v1.4.2 is an independent project and not supported by CrowdStrike.
